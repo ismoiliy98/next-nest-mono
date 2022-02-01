@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": "workspaces",
+    "paths": {
+      "@client/*": ["client/*"],
+      "@shared/*": ["shared/*"],
+      "@server/*": ["server/src/*"]
+    }
+  }
+}
