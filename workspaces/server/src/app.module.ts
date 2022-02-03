@@ -13,10 +13,11 @@ export class AppModule {
       module: AppModule,
       imports: [
         ConfigModule.forRoot({
-          validate: validateEnv,
+          ignoreEnvFile: true,
           isGlobal: true,
           cache: true,
           load: [AppConfig],
+          validate: validateEnv,
         }),
         EventEmitterModule.forRoot(),
         PingModule,

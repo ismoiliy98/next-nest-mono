@@ -1,5 +1,10 @@
-import { plainToClass } from 'class-transformer';
-import { IsEnum, IsNumber, IsString, validateSync } from 'class-validator';
+import { plainToInstance } from 'class-transformer';
+import {
+  IsEnum,
+  IsNumberString,
+  IsString,
+  validateSync,
+} from 'class-validator';
 
 enum Env {
   Development = 'development',
@@ -10,7 +15,7 @@ enum Env {
 
 class EnvVars {
   @IsEnum(Env) NODE_ENV: Env;
-  @IsNumber() PORT: number;
+  @IsNumberString() PORT: string;
 
   @IsString() APP_NAME: string;
   @IsString() APP_KEY: string;
@@ -18,7 +23,12 @@ class EnvVars {
 }
 
 export const validateEnv = (config: Record<string, unknown>) => {
-  const validatedConfig = plainToClass(EnvVars, config, {
+  /**
+   * @todo remove statement below after https://github.com/swc-project/swc/issues/2117 has been resolved
+   */
+  if (Env.Development === config.NODE_ENV) return config;
+
+  const validatedConfig = plainToInstance(EnvVars, config, {
     enableImplicitConversion: true,
   });
   const errors = validateSync(validatedConfig, {
