@@ -1,22 +1,34 @@
+const path = require('path');
+const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const { RunScriptWebpackPlugin } = require('run-script-webpack-plugin');
 
-module.exports = function (options, webpack) {
-  return {
-    ...options,
-    entry: ['webpack/hot/poll?100', options.entry],
-    externals: [
-      nodeExternals({
-        allowlist: ['webpack/hot/poll?100'],
-      }),
+module.exports = {
+  mode: 'development',
+  entry: ['webpack/hot/poll?100', './src/main.ts'],
+  target: 'node',
+  externals: [
+    nodeExternals({
+      allowlist: ['webpack/hot/poll?100'],
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.(t|j)sx?$/,
+        exclude: /(node_modules|bower_components)/,
+        use: 'swc-loader',
+      },
     ],
-    plugins: [
-      ...options.plugins,
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.WatchIgnorePlugin({
-        paths: [/\.js$/, /\.d\.ts$/],
-      }),
-      new RunScriptWebpackPlugin({ name: options.output.filename }),
-    ],
-  };
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new RunScriptWebpackPlugin(),
+  ],
+  output: {
+    path: path.join(__dirname, 'dist'),
+  },
 };
