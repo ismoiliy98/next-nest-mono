@@ -16,18 +16,12 @@ enum Env {
 class EnvVars {
   @IsEnum(Env) NODE_ENV: Env;
   @IsNumberString() PORT: string;
-
   @IsString() APP_NAME: string;
   @IsString() APP_KEY: string;
   @IsString() APP_SECRET: string;
 }
 
 export const validateEnv = (config: Record<string, unknown>) => {
-  /**
-   * @todo remove statement below after https://github.com/swc-project/swc/issues/2117 has been resolved
-   */
-  if (Env.Development === config.NODE_ENV) return config;
-
   const validatedConfig = plainToInstance(EnvVars, config, {
     enableImplicitConversion: true,
   });
