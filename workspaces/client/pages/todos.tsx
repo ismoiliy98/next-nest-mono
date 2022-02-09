@@ -2,7 +2,7 @@ import { Center, Heading, useColorModeValue } from '@chakra-ui/react';
 import Page from '@client/layouts/Page';
 import type { NextPage } from 'next';
 
-const Home: NextPage = () => {
+const Todos: NextPage = () => {
   const cardBgColor = useColorModeValue('white', 'gray.800');
   const headingColor = useColorModeValue('gray.500', 'white');
 
@@ -23,11 +23,11 @@ const Home: NextPage = () => {
           transitionProperty="color"
           transitionDuration="normal"
         >
-          Hello from Next.js
+          Hello from Todos page
         </Heading>
       </Center>
     </Page>
   );
 };
 
-export default Home;
+export default Todos;
