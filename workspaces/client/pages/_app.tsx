@@ -1,3 +1,4 @@
+import { ChakraProvider } from '@chakra-ui/react';
 import '@client/assets/styles/tailwind.scss';
 import type { AppContext, AppProps } from 'next/app';
 import App from 'next/app';
@@ -7,7 +8,11 @@ interface NextAppProps extends AppProps {
 }
 
 const NextApp = ({ Component, pageProps, appKey }: NextAppProps) => {
-  return <Component {...pageProps} />;
+  return (
+    <ChakraProvider>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
 };
 
 NextApp.getInitialProps = async (appContext: AppContext) => {

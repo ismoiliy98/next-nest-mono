@@ -10,6 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.8.3",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "framer-motion": "^6.2.4",
     "next": "^12.0.10",
     "next-plugin-preact": "^3.0.6",
     "preact": "^10.6.5",
@@ -17,10 +21,12 @@
     "preact-ssr-prepass": "^1.2.0",
     "react": "npm:@preact/compat",
     "react-dom": "npm:@preact/compat",
+    "react-feather": "^2.0.9",
     "react-ssr-prepass": "npm:preact-ssr-prepass",
     "svg-url-loader": "^7.1.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.2",
     "@prefresh/babel-plugin": "^0.4.1",
     "@types/react": "^17.0.39",
     "autoprefixer": "^10.4.2",
