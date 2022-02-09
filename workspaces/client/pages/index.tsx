@@ -9,9 +9,9 @@ const Home: NextPage = () => {
   });
 
   return (
-    <div className="h-screen p-24 bg-blue-50 dark:bg-[#3C4657]">
-      <div className="shadow-md rounded-xl m-auto w-full h-full flex items-center justify-center bg-white dark:bg-[#1B212C] px-4">
-        <h1 className="text-gray-500 dark:text-[#FFD6AE] text-base sm:text-3xl">
+    <div className="h-screen bg-blue-50 p-24 dark:bg-[#3C4657]">
+      <div className="m-auto flex h-full w-full items-center justify-center rounded-xl bg-white px-4 shadow-md dark:bg-[#1B212C]">
+        <h1 className="text-base text-gray-500 dark:text-[#FFD6AE] sm:text-3xl">
           Hello from Next.js
         </h1>
       </div>
