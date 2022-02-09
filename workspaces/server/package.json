@@ -7,8 +7,8 @@
     "build": "nest build",
     "dev": "yarn prebuild && webpack --watch",
     "start": "node dist/server/src/main",
-    "format": "prettier --write \"**/*.ts\"",
-    "lint": "eslint \"**/*.ts\" --fix"
+    "format": "prettier --config ../../.prettierrc --write \"./**/*.[jt]s?(x)\"",
+    "lint": "eslint \"./**/*.[jt]s?(x)\" --fix"
   },
   "dependencies": {
     "@nestjs/common": "^8.2.6",
@@ -31,7 +31,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "fastify": "^3.27.1",
-    "prettier": "^2.5.1",
     "run-script-webpack-plugin": "^0.0.11",
     "source-map-support": "^0.5.21",
     "swc-loader": "^0.1.15",

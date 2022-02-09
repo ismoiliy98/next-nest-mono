@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "format": "prettier --config ../../.prettierrc --write \"./{pages,components}/**/*.[jt]s?(x)\"",
     "lint": "next lint"
   },
   "dependencies": {
