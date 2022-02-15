@@ -18,6 +18,7 @@ declare const module: any;
     .useGlobalPipes(
       new ValidationPipe({
         transform: true,
+        whitelist: true,
       }),
     )
     .setGlobalPrefix('/api')
