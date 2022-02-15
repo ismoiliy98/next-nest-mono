@@ -11,23 +11,23 @@
     "lint": "eslint \"./**/*.[jt]s?(x)\" --fix"
   },
   "dependencies": {
-    "@nestjs/common": "^8.2.6",
-    "@nestjs/config": "^1.1.6",
-    "@nestjs/core": "^8.2.6",
+    "@nestjs/common": "^8.3.0",
+    "@nestjs/config": "^1.2.0",
+    "@nestjs/core": "^8.3.0",
     "@nestjs/event-emitter": "^1.0.0",
-    "@nestjs/platform-fastify": "^8.2.6",
+    "@nestjs/platform-fastify": "^8.3.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "fastify-cookie": "^5.5.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.5.3"
+    "rxjs": "^7.5.4"
   },
   "devDependencies": {
-    "@nestjs/cli": "^8.2.0",
-    "@nestjs/schematics": "^8.0.5",
-    "@swc/core": "^1.2.138",
-    "@typescript-eslint/eslint-plugin": "^5.11.0",
-    "@typescript-eslint/parser": "^5.11.0",
+    "@nestjs/cli": "^8.2.1",
+    "@nestjs/schematics": "^8.0.6",
+    "@swc/core": "^1.2.139",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "fastify": "^3.27.1",
