@@ -5,6 +5,7 @@ import type { NestFastifyApplication as App } from '@nestjs/platform-fastify';
 import { FastifyAdapter as Adapter } from '@nestjs/platform-fastify';
 import AppConfig from '@server/app.config';
 import { AppModule } from '@server/app.module';
+import { PrismaService } from '@server/prisma.service';
 import fastifyCookie from 'fastify-cookie';
 
 declare const module: any;
@@ -26,6 +27,9 @@ declare const module: any;
       secret: appSecret,
       prefix: '__Host-',
     });
+
+  const prismaService: PrismaService = app.get(PrismaService);
+  await prismaService.enableShutdownHooks(app);
 
   await app.listen(appPort, '0.0.0.0');
   const mode = process.env.NODE_ENV || 'development';

@@ -1,56 +1,29 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTodoDto } from '@server/modules/todos/dto/create-todo.dto';
 import { UpdateTodoDto } from '@server/modules/todos/dto/update-todo.dto';
-import { ITodo } from '@shared/interfaces/todos.interface';
-
-function* idGenerator() {
-  let id = 1;
-  while (true) {
-    yield id++;
-  }
-}
-
-const getNextId = idGenerator();
-const todos: ITodo[] = [];
+import { PrismaService } from '@server/prisma.service';
 
 @Injectable()
 export class TodosService {
-  create(createTodoDto: CreateTodoDto) {
-    const todo: ITodo = {
-      id: getNextId.next().value || 1,
-      ...createTodoDto,
-    };
+  constructor(private readonly prismaService: PrismaService) {}
 
-    todos.push(todo);
+  create(data: CreateTodoDto) {
+    return this.prismaService.todo.create({ data });
   }
 
   findAll() {
-    return todos;
+    return this.prismaService.todo.findMany();
   }
 
-  findOne(id: number) {
-    return todos.find((todo) => todo.id === id) || {};
+  findOne(id: string) {
+    return this.prismaService.todo.findFirst({ where: { id } });
   }
 
-  update(id: number, updateTodoDto: UpdateTodoDto) {
-    const todo = todos.find((todo) => todo.id === id);
-
-    if (todo) {
-      todo.title = updateTodoDto.title;
-      todo.description = updateTodoDto.description;
-      todo.completed = updateTodoDto.completed;
-    }
-
-    return todo || {};
+  update(id: string, data: UpdateTodoDto) {
+    return this.prismaService.todo.update({ where: { id }, data });
   }
 
-  remove(id: number) {
-    const todoIndex = todos.findIndex((todo) => todo.id === id);
-
-    if (todoIndex !== -1) {
-      todos.splice(todoIndex, 1);
-    }
-
-    return todos[todoIndex] || {};
+  remove(id: string) {
+    return this.prismaService.todo.delete({ where: { id } });
   }
 }

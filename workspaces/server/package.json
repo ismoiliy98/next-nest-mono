@@ -8,7 +8,8 @@
     "dev": "yarn prebuild && webpack --watch",
     "start": "node dist/server/src/main",
     "format": "prettier --config ../../.prettierrc --write \"./**/*.[jt]s?(x)\"",
-    "lint": "eslint \"./**/*.[jt]s?(x)\" --fix"
+    "lint": "eslint \"./**/*.[jt]s?(x)\" --fix",
+    "prisma:generate": "npx prisma generate"
   },
   "dependencies": {
     "@nestjs/common": "^8.3.0",
@@ -17,6 +18,7 @@
     "@nestjs/event-emitter": "^1.0.0",
     "@nestjs/mapped-types": "^1.0.1",
     "@nestjs/platform-fastify": "^8.3.0",
+    "@prisma/client": "^3.9.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "fastify-cookie": "^5.5.0",
@@ -32,6 +34,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "fastify": "^3.27.1",
+    "prisma": "^3.9.2",
     "run-script-webpack-plugin": "^0.0.11",
     "source-map-support": "^0.5.21",
     "swc-loader": "^0.1.15",
