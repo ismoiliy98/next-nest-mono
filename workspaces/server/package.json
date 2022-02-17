@@ -8,7 +8,8 @@
     "dev": "yarn prebuild && webpack --watch",
     "start": "node dist/server/src/main",
     "format": "prettier --config ../../.prettierrc --write \"./**/*.[jt]s?(x)\"",
-    "lint": "eslint \"./**/*.[jt]s?(x)\" --fix"
+    "lint": "eslint \"./**/*.[jt]s?(x)\" --fix",
+    "prisma:generate": "npx prisma generate"
   },
   "dependencies": {
     "@nestjs/common": "^8.3.0",
