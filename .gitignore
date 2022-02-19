@@ -5,6 +5,7 @@ build/
 .next/
 public/
 .swc/
+prisma/schema.prisma
 
 # Yarn
 .yarn/*
