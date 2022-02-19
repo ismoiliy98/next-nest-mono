@@ -23,6 +23,9 @@ declare const module: any;
       }),
     )
     .setGlobalPrefix('/api')
+    //@todo: remove this when nest updates fastify
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
     .register(fastifyCookie, {
       secret: appSecret,
       prefix: '__Host-',
