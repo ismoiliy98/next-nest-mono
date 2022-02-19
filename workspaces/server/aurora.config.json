@@ -1,0 +1,4 @@
+{
+  "files": ["./prisma/base.prisma", "./src/**/*.model.prisma"],
+  "output": "./prisma/schema.prisma"
+}
