@@ -1,9 +1,6 @@
 const withPreact = require('next-plugin-preact');
-const { PORT } = process.env;
-console.log('==========');
-console.log({ PORT });
-console.log('==========');
-const appPort = (parseInt(PORT, 10) || 3000) + 1;
+const { APP_PORT } = process.env;
+const appPort = parseInt(APP_PORT, 10) || 3001;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
