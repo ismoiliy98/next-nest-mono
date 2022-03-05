@@ -35,7 +35,7 @@ export const validateEnv = (config: Record<string, unknown>) => {
 
     errors.forEach((error) => {
       (typeof error.value === 'undefined' ? missingFields : invalidFields).push(
-        error.property,
+        error.property
       );
     });
 

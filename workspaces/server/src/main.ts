@@ -20,7 +20,7 @@ declare const module: any;
       new ValidationPipe({
         transform: true,
         whitelist: true,
-      }),
+      })
     )
     .setGlobalPrefix('/api')
     //@todo: remove this when nest updates fastify
@@ -38,7 +38,7 @@ declare const module: any;
   const mode = process.env.NODE_ENV || 'development';
   Logger.log(
     `🚀 Server is running in ${mode} mode on port ${appPort}`,
-    'Bootstrap',
+    'Bootstrap'
   );
 
   if (module.hot) {
