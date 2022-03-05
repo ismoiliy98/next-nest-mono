@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "workspaces",
     "paths": {
-      "@client/*": ["client/*"],
+      "@client/*": ["client/src/*"],
       "@shared/*": ["shared/*"],
       "@server/*": ["server/src/*"]
     }

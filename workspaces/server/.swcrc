@@ -15,7 +15,7 @@
     "target": "es2022",
     "baseUrl": "..",
     "paths": {
-      "@client/*": ["client/*"],
+      "@client/*": ["client/src/*"],
       "@shared/*": ["shared/*"],
       "@server/*": ["server/src/*"]
     }
