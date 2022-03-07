@@ -45,7 +45,7 @@ const Header: FC = () => {
     (path: string) => {
       router.push(path);
     },
-    [router],
+    [router]
   );
 
   return (

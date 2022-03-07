@@ -11,7 +11,7 @@ import fastifyCookie from 'fastify-cookie';
 declare const module: any;
 
 (async () => {
-  const app = await NestFactory.create<App>(AppModule.init(), new Adapter());
+  const app = await NestFactory.create<App>(AppModule, new Adapter());
   const appConfig = app.get<ConfigType<typeof AppConfig>>(AppConfig.KEY);
   const { appPort, appSecret } = appConfig;
 
@@ -20,12 +20,9 @@ declare const module: any;
       new ValidationPipe({
         transform: true,
         whitelist: true,
-      }),
+      })
     )
     .setGlobalPrefix('/api')
-    //@todo: remove this when nest updates fastify
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
     .register(fastifyCookie, {
       secret: appSecret,
       prefix: '__Host-',
@@ -38,7 +35,7 @@ declare const module: any;
   const mode = process.env.NODE_ENV || 'development';
   Logger.log(
     `🚀 Server is running in ${mode} mode on port ${appPort}`,
-    'Bootstrap',
+    'Bootstrap'
   );
 
   if (module.hot) {

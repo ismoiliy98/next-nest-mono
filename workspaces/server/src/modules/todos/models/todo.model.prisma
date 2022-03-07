@@ -4,7 +4,7 @@ datasource db {
 }
 
 model Todo {
-  id          String  @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   description String  @default("")
   completed   Boolean

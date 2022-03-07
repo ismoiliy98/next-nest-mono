@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./{pages,components}/**/*.[jt]s?(x)'],
+  content: ['./src/{pages,components}/**/*.[jt]s?(x)'],
   corePlugins: {
     preflight: false,
   },

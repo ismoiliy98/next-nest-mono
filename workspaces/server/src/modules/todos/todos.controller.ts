@@ -11,6 +11,7 @@ import { CreateTodoDto } from '@server/modules/todos/dto/create-todo.dto';
 import { UpdateTodoDto } from '@server/modules/todos/dto/update-todo.dto';
 import { TodosService } from '@server/modules/todos/todos.service';
 import { TODO_ROUTES } from '@shared/routes/todo.routes';
+
 @Controller(TODO_ROUTES.BASE)
 export class TodosController {
   constructor(private readonly todosService: TodosService) {}
