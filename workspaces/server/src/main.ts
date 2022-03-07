@@ -11,7 +11,7 @@ import fastifyCookie from 'fastify-cookie';
 declare const module: any;
 
 (async () => {
-  const app = await NestFactory.create<App>(AppModule.init(), new Adapter());
+  const app = await NestFactory.create<App>(AppModule, new Adapter());
   const appConfig = app.get<ConfigType<typeof AppConfig>>(AppConfig.KEY);
   const { appPort, appSecret } = appConfig;
 
@@ -23,9 +23,6 @@ declare const module: any;
       })
     )
     .setGlobalPrefix('/api')
-    //@todo: remove this when nest updates fastify
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
     .register(fastifyCookie, {
       secret: appSecret,
       prefix: '__Host-',

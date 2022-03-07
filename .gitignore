@@ -156,3 +156,6 @@ dist
 
 # Next.js CDN public files
 public/
+
+# OS
+.DS_Store

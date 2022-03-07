@@ -18,8 +18,7 @@
     "prebuild": "yarn clean:outputs",
     "build": "cross-env NODE_ENV=production yarn pretify \"yarn client build\" \"yarn server build\"",
     "dev": "cross-env NODE_ENV=development yarn pretify \"yarn client dev\" \"yarn server dev\"",
-    "start": "cross-env NODE_ENV=production yarn pretify \"yarn client start\" \"yarn server start\"",
-    "start:heroku": "node workspaces/server/dist/server/src/main.js & cd workspaces/client && next start"
+    "start": "cross-env NODE_ENV=production yarn pretify \"yarn client start\" \"yarn server start\""
   },
   "dependencies": {
     "@prisma/client": "^3.10.0"
