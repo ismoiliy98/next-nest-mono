@@ -1,33 +1,8 @@
-import { Center, Heading, useColorModeValue } from '@chakra-ui/react';
-import Page from '@client/layouts/Page';
+import { Text } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 
 const Todos: NextPage = () => {
-  const cardBgColor = useColorModeValue('white', 'gray.800');
-  const headingColor = useColorModeValue('gray.500', 'white');
-
-  return (
-    <Page>
-      <Center
-        bg={cardBgColor}
-        rounded="md"
-        shadow="lg"
-        w="full"
-        transition="ease-in-out"
-        transitionProperty="background-color"
-        transitionDuration="normal"
-      >
-        <Heading
-          color={headingColor}
-          transition="ease-in-out"
-          transitionProperty="color"
-          transitionDuration="normal"
-        >
-          Hello from Todos page
-        </Heading>
-      </Center>
-    </Page>
-  );
+  return <Text>Hello from Todos Page</Text>;
 };
 
 export default Todos;

@@ -1,5 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import '@client/assets/styles/tailwind.scss';
+import Page from '@client/components/Page';
 import type { AppContext, AppProps } from 'next/app';
 import App from 'next/app';
 import Head from 'next/head';
@@ -16,7 +17,9 @@ const NextApp = ({ Component, pageProps, appKey }: NextAppProps) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="Next.js and Nest.js monorepo" />
       </Head>
-      <Component {...pageProps} />
+      <Page>
+        <Component {...pageProps} />
+      </Page>
     </ChakraProvider>
   );
 };
