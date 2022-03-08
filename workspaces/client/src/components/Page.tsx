@@ -1,4 +1,4 @@
-import { Center, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Flex, useColorModeValue } from '@chakra-ui/react';
 import Header from '@client/components/Header';
 import { FC } from 'react';
 
@@ -19,7 +19,7 @@ const Page: FC = ({ children }) => {
       transitionDuration="normal"
     >
       <Header />
-      <Center
+      <Flex
         flexGrow={1}
         color={textColor}
         transition="ease-in-out"
@@ -27,7 +27,7 @@ const Page: FC = ({ children }) => {
         transitionDuration="normal"
       >
         {children}
-      </Center>
+      </Flex>
     </Flex>
   );
 };
