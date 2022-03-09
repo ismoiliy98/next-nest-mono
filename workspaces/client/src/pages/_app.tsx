@@ -1,9 +1,17 @@
-import { ChakraProvider } from '@chakra-ui/react';
+import {
+  ChakraProvider,
+  extendTheme,
+  withDefaultColorScheme,
+} from '@chakra-ui/react';
 import '@client/assets/styles/tailwind.scss';
 import Page from '@client/components/Page';
 import type { AppContext, AppProps } from 'next/app';
 import App from 'next/app';
 import Head from 'next/head';
+
+const customTheme = extendTheme(
+  withDefaultColorScheme({ colorScheme: 'teal' })
+);
 
 interface NextAppProps extends AppProps {
   appKey: string;
@@ -11,7 +19,7 @@ interface NextAppProps extends AppProps {
 
 const NextApp = ({ Component, pageProps, appKey }: NextAppProps) => {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={customTheme}>
       <Head>
         <title>Next.js application</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

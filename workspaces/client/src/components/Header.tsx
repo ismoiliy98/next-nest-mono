@@ -77,11 +77,7 @@ const Header: FC = () => {
       </Stack>
       <Stack direction="row" alignItems="center">
         <Icon color={iconColor} as={Sun} />
-        <Switch
-          colorScheme="teal"
-          onChange={toggleColorMode}
-          isChecked={colorMode === 'dark'}
-        />
+        <Switch onChange={toggleColorMode} isChecked={colorMode === 'dark'} />
         <Icon color={iconColor} as={Moon} />
       </Stack>
     </Flex>
