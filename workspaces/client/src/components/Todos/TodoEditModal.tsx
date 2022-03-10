@@ -14,8 +14,10 @@ import {
   Switch,
   VStack,
 } from '@chakra-ui/react';
+import { addTodo, updateTodo } from '@client/services/todos';
 import { Todo } from '@prisma/client';
 import { FC, useCallback, useEffect, useState } from 'react';
+import { useMutation, useQueryClient } from 'react-query';
 
 interface ITodoEditModalProps {
   isOpen: boolean;
@@ -33,6 +35,17 @@ const defaultTodo: Todo = {
 const TodoEditModal: FC<ITodoEditModalProps> = (props) => {
   const { isOpen, onClose, todo } = props;
   const [editingTodo, setEditingTodo] = useState<Todo>({ ...defaultTodo });
+
+  const queryClient = useQueryClient();
+
+  const { mutateAsync: mutateTodo, isLoading } = useMutation(
+    todo?.id ? updateTodo : addTodo,
+    {
+      onSettled: () => {
+        queryClient.invalidateQueries(['todos']);
+      },
+    }
+  );
 
   useEffect(() => {
     if (todo) {
@@ -62,12 +75,27 @@ const TodoEditModal: FC<ITodoEditModalProps> = (props) => {
 
   const isInvalid = editingTodo.title.length < 1;
 
+  const onSave = useCallback(async () => {
+    if (isInvalid) {
+      return;
+    }
+
+    await mutateTodo(editingTodo);
+    onClose();
+  }, [editingTodo, isInvalid, mutateTodo, onClose]);
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      isCentered
+      closeOnEsc={!isLoading}
+      closeOnOverlayClick={!isLoading}
+    >
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>{todo ? 'Edit todo' : 'Add todo'}</ModalHeader>
-        <ModalCloseButton />
+        <ModalCloseButton isDisabled={isLoading} />
         <ModalBody>
           <VStack spacing="4">
             <FormControl isRequired isInvalid={isInvalid}>
@@ -106,10 +134,12 @@ const TodoEditModal: FC<ITodoEditModalProps> = (props) => {
 
         <ModalFooter>
           <ButtonGroup>
-            <Button variant="ghost" onClick={onClose}>
+            <Button variant="ghost" onClick={onClose} isLoading={isLoading}>
               Cancel
             </Button>
-            <Button onClick={onClose}>Save</Button>
+            <Button onClick={onSave} isLoading={isLoading}>
+              Save
+            </Button>
           </ButtonGroup>
         </ModalFooter>
       </ModalContent>

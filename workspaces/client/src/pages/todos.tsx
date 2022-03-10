@@ -8,40 +8,21 @@ import {
 import TodoDeleteModal from '@client/components/Todos/TodoDeleteModal';
 import TodoEditModal from '@client/components/Todos/TodoEditModal';
 import TodosList from '@client/components/Todos/TodosList';
+import { fetchTodosList } from '@client/services/todos';
 import { Todo } from '@prisma/client';
 import type { NextPage } from 'next';
 import { useCallback, useState } from 'react';
-
-const todos: Todo[] = [
-  {
-    id: '1',
-    title: 'Learn Next.js',
-    completed: true,
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Atque ab laboriosam aliquam accusantium ullam corporis
-      exercitationem possimus nostrum laudantium consequuntur?`,
-  },
-  {
-    id: '2',
-    title: 'Learn Chakra UI',
-    completed: false,
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Atque ab laboriosam aliquam accusantium ullam corporis
-      exercitationem possimus nostrum laudantium consequuntur?`,
-  },
-  {
-    id: '3',
-    title: 'Learn GraphQL',
-    completed: false,
-    description: '',
-  },
-];
+import { useQuery } from 'react-query';
 
 const Todos: NextPage = () => {
   const headerTextColor = useColorModeValue('gray.600', 'white');
   const addButtonColor = useColorModeValue('white', 'teal.600');
   const [editingTodo, setEditingTodo] = useState<Todo | null>(null);
   const [deletingTodo, setDeletingTodo] = useState<Todo | null>(null);
+  const { isLoading: isTodosLoading, data: todos } = useQuery(
+    'todos',
+    fetchTodosList
+  );
 
   const {
     isOpen: isEditModalOpen,
@@ -93,17 +74,24 @@ const Todos: NextPage = () => {
           Add
         </Button>
       </Flex>
-      <TodosList todos={todos} onDelete={onDelete} onEdit={onEdit} />
+      <TodosList
+        todos={todos || []}
+        onDelete={onDelete}
+        onEdit={onEdit}
+        isLoading={isTodosLoading}
+      />
       <TodoEditModal
         isOpen={isEditModalOpen}
         onClose={onEditModalClose}
         todo={editingTodo}
       />
-      <TodoDeleteModal
-        isOpen={isDeleteModalOpen}
-        onClose={onDeleteModalClose}
-        todo={deletingTodo}
-      />
+      {deletingTodo && (
+        <TodoDeleteModal
+          isOpen={isDeleteModalOpen}
+          onClose={onDeleteModalClose}
+          todo={deletingTodo}
+        />
+      )}
     </Flex>
   );
 };

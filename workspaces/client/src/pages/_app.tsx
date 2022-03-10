@@ -8,6 +8,9 @@ import Page from '@client/components/Page';
 import type { AppContext, AppProps } from 'next/app';
 import App from 'next/app';
 import Head from 'next/head';
+import { useState } from 'react';
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 const customTheme = extendTheme(
   withDefaultColorScheme({ colorScheme: 'teal' })
@@ -18,6 +21,8 @@ interface NextAppProps extends AppProps {
 }
 
 const NextApp = ({ Component, pageProps, appKey }: NextAppProps) => {
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
     <ChakraProvider theme={customTheme}>
       <Head>
@@ -25,9 +30,14 @@ const NextApp = ({ Component, pageProps, appKey }: NextAppProps) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="Next.js and Nest.js monorepo" />
       </Head>
-      <Page>
-        <Component {...pageProps} />
-      </Page>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <Page>
+            <Component {...pageProps} />
+            <ReactQueryDevtools initialIsOpen={false} />
+          </Page>
+        </Hydrate>
+      </QueryClientProvider>
     </ChakraProvider>
   );
 };

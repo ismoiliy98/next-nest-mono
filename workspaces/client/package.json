@@ -22,6 +22,7 @@
     "react": "npm:@preact/compat",
     "react-dom": "npm:@preact/compat",
     "react-feather": "^2.0.9",
+    "react-query": "^3.34.16",
     "react-ssr-prepass": "npm:preact-ssr-prepass",
     "svg-url-loader": "^7.1.1"
   },
