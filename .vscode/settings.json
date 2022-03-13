@@ -1,4 +1,5 @@
 {
+  "eslint.workingDirectories": [{ "pattern": "workspaces/**" }],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.organizeImports": true
@@ -8,5 +9,8 @@
   "editor.quickSuggestions": {
     "strings": true
   },
-  "tailwindCSS.includeLanguages": { "typescriptreact": "html" }
+  "tailwindCSS.includeLanguages": {
+    "typescriptreact": "html",
+    "javascriptreact": "html"
+  }
 }

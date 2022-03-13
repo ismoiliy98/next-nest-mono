@@ -3,6 +3,16 @@
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
     "mikestead.dotenv",
-    "Prisma.prisma"
+    "prisma.prisma",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "dsznajder.es7-react-js-snippets",
+    "eamodio.gitlens",
+    "vincaslt.highlight-matching-tag",
+    "ecmel.vscode-html-css",
+    "davidanson.vscode-markdownlint",
+    "pkief.material-icon-theme",
+    "bradlc.vscode-tailwindcss",
+    "rangav.vscode-thunder-client"
   ]
 }
