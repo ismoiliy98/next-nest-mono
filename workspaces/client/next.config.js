@@ -1,4 +1,3 @@
-const withPreact = require('next-plugin-preact');
 const { APP_PORT } = process.env;
 const appPort = parseInt(APP_PORT, 10) || 3001;
 
@@ -32,4 +31,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPreact(nextConfig);
+module.exports = nextConfig;

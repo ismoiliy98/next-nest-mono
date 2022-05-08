@@ -10,31 +10,25 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.8.6",
-    "@emotion/react": "^11.8.1",
+    "@chakra-ui/react": "2.0.0-next.4",
+    "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "framer-motion": "^6.2.8",
-    "next": "^12.1.0",
-    "next-plugin-preact": "^3.0.6",
-    "preact": "^10.6.6",
-    "preact-render-to-string": "^5.1.20",
-    "preact-ssr-prepass": "^1.2.0",
-    "react": "npm:@preact/compat",
-    "react-dom": "npm:@preact/compat",
+    "framer-motion": "^6.3.3",
+    "next": "^12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
     "react-feather": "^2.0.9",
-    "react-query": "^3.34.16",
-    "react-ssr-prepass": "npm:preact-ssr-prepass",
+    "react-query": "^3.39.0",
     "svg-url-loader": "^7.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.5",
-    "@prefresh/babel-plugin": "^0.4.3",
-    "@types/react": "^17.0.39",
-    "autoprefixer": "^10.4.2",
-    "eslint-config-next": "^12.1.0",
-    "postcss": "^8.4.7",
-    "sass": "^1.49.9",
-    "scheduler": "^0.20.2",
-    "tailwindcss": "^3.0.23"
+    "@babel/core": "^7.17.10",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.3",
+    "autoprefixer": "^10.4.7",
+    "eslint-config-next": "^12.1.6",
+    "postcss": "^8.4.13",
+    "sass": "^1.51.0",
+    "tailwindcss": "^3.0.24"
   }
 }

@@ -1,8 +1,8 @@
 import { Flex, useColorModeValue } from '@chakra-ui/react';
 import Header from '@client/components/Header';
-import { FC } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
-const Page: FC = ({ children }) => {
+const Page: FC<PropsWithChildren<{}>> = ({ children }) => {
   const mainBgColor = useColorModeValue('gray.100', 'gray.500');
   const textColor = useColorModeValue('gray.400', 'gray.300');
 
