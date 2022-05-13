@@ -9,6 +9,7 @@ module.exports = {
   target: 'node',
   externals: [
     nodeExternals({
+      additionalModuleDirs: [path.resolve(__dirname, '../../node_modules')],
       allowlist: ['webpack/hot/poll?100'],
     }),
   ],
