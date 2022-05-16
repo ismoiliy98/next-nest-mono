@@ -22,7 +22,8 @@
     "start": "cross-env NODE_ENV=production yarn pretify \"yarn client start\" \"yarn server start\""
   },
   "dependencies": {
-    "@prisma/client": "^3.14.0"
+    "@prisma/client": "^3.14.0",
+    "axios": "^0.27.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.33",
