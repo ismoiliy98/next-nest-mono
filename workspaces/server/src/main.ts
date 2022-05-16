@@ -1,3 +1,4 @@
+import fastifyCookie from '@fastify/cookie';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import type { ConfigType } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
@@ -6,7 +7,6 @@ import { FastifyAdapter as Adapter } from '@nestjs/platform-fastify';
 import AppConfig from '@server/app.config';
 import { AppModule } from '@server/app.module';
 import { PrismaService } from '@server/prisma.service';
-import fastifyCookie from 'fastify-cookie';
 
 declare const module: any;
 
