@@ -16,7 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(t|j)sx?$/,
+        test: /\.[tj]s$/,
         exclude: /(node_modules|bower_components)/,
         use: 'swc-loader',
       },
