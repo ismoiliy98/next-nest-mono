@@ -11,8 +11,9 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { deleteTodo } from '@client/services/todos';
-import { Todo } from '@prisma/client';
-import { FC, useCallback } from 'react';
+import type { Todo } from '@prisma/client';
+import type { FC } from 'react';
+import { useCallback } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 
 interface ITodoDeleteModalProps {

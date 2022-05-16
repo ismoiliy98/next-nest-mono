@@ -7,9 +7,8 @@ import {
 } from '@chakra-ui/react';
 import TodoItem from '@client/components/Todos/TodoItem';
 import TodoItemSkeleton from '@client/components/Todos/TodoItemSkeleton';
-import { Todo } from '@prisma/client';
-import React, { FC } from 'react';
-
+import type { Todo } from '@prisma/client';
+import type { FC } from 'react';
 interface ITodosListProps {
   todos: Todo[];
   isLoading: boolean;

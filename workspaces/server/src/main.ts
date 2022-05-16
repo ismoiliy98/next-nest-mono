@@ -1,5 +1,5 @@
 import { Logger, ValidationPipe } from '@nestjs/common';
-import { ConfigType } from '@nestjs/config';
+import type { ConfigType } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import type { NestFastifyApplication as App } from '@nestjs/platform-fastify';
 import { FastifyAdapter as Adapter } from '@nestjs/platform-fastify';

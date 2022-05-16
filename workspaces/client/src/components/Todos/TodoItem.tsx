@@ -8,8 +8,8 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
-import { Todo } from '@prisma/client';
-import { FC } from 'react';
+import type { Todo } from '@prisma/client';
+import type { FC } from 'react';
 import { Edit, Trash } from 'react-feather';
 
 interface ITodoItemProps {

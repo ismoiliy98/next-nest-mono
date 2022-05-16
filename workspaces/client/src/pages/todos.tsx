@@ -9,7 +9,7 @@ import TodoDeleteModal from '@client/components/Todos/TodoDeleteModal';
 import TodoEditModal from '@client/components/Todos/TodoEditModal';
 import TodosList from '@client/components/Todos/TodosList';
 import { fetchTodosList } from '@client/services/todos';
-import { Todo } from '@prisma/client';
+import type { Todo } from '@prisma/client';
 import type { NextPage } from 'next';
 import { useCallback, useState } from 'react';
 import { useQuery } from 'react-query';

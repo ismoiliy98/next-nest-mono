@@ -1,5 +1,5 @@
 import coreInstance from '@client/services/core';
-import { Todo } from '@prisma/client';
+import type { Todo } from '@prisma/client';
 import { TODO_ROUTES } from '@shared/routes/todo.routes';
 
 export const fetchTodosList = async () => {

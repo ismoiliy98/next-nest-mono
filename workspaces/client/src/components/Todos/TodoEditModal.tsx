@@ -15,8 +15,9 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { addTodo, updateTodo } from '@client/services/todos';
-import { Todo } from '@prisma/client';
-import { FC, useCallback, useEffect, useState } from 'react';
+import type { Todo } from '@prisma/client';
+import type { FC } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 
 interface ITodoEditModalProps {

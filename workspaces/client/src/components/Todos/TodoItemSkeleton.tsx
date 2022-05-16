@@ -1,5 +1,5 @@
 import { Container, Skeleton, SkeletonText } from '@chakra-ui/react';
-import { FC } from 'react';
+import type { FC } from 'react';
 
 interface ITodoItemSkeleton {
   containerBgColor?: string;

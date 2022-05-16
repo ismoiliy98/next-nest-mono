@@ -9,7 +9,8 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import { FC, useCallback, useEffect } from 'react';
+import type { FC } from 'react';
+import { useCallback, useEffect } from 'react';
 import { Moon, Sun } from 'react-feather';
 
 const routes = [
