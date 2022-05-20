@@ -5,8 +5,8 @@ const { RunScriptWebpackPlugin } = require('run-script-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: ['webpack/hot/poll?100', './src/main.ts'],
   target: 'node',
+  entry: ['webpack/hot/poll?100', './src/main.ts'],
   externals: [
     nodeExternals({
       additionalModuleDirs: [path.resolve(__dirname, '../../node_modules')],
@@ -22,14 +22,12 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    extensions: ['.ts', '.js'],
-  },
+  resolve: { extensions: ['.ts', '.js'] },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new RunScriptWebpackPlugin(),
   ],
-  output: {
-    path: path.join(__dirname, 'dist'),
-  },
+  output: { path: path.join(__dirname, 'dist') },
+  infrastructureLogging: { level: 'warn' },
+  stats: { preset: 'errors-warnings', timings: true },
 };
