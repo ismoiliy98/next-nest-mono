@@ -10,9 +10,9 @@ import {
 import { CreateTodoDto } from '@server/modules/todos/dto/create-todo.dto';
 import { UpdateTodoDto } from '@server/modules/todos/dto/update-todo.dto';
 import { TodosService } from '@server/modules/todos/todos.service';
-import { TODO_ROUTES } from '@shared/routes/todo.routes';
+import { ROUTES } from '@shared/routes';
 
-@Controller(TODO_ROUTES.BASE)
+@Controller(ROUTES.TODOS)
 export class TodosController {
   constructor(private readonly todosService: TodosService) {}
 
